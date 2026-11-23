@@ -62,10 +62,7 @@ class RelayClient {
     accessToken ??= await CredStore.read('accessToken');
     agentId ??= await CredStore.read('agentId');
     deviceId ??= await CredStore.read('deviceId');
-    var effectiveUrl = relayUrl;
-    if (effectiveUrl.startsWith('wss://replay.githun.cn/')) {
-      effectiveUrl = effectiveUrl.replaceFirst('wss://', 'ws://');
-    }
+    final effectiveUrl = relayUrl;
     await CredStore.write('relayUrl', effectiveUrl);
     lastError = null;
     authRejected = false;

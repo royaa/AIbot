@@ -16,7 +16,7 @@ except ImportError:
     import paramiko
 
 ROOT = Path(__file__).resolve().parents[2]
-DOMAIN = os.environ.get("GROKBOT_DOMAIN", "replay.githun.cn")
+DOMAIN = os.environ.get("GROKBOT_DOMAIN", "").strip()
 HOST = os.environ.get("GROKBOT_SSH_HOST", "101.133.226.127")
 USER = os.environ.get("GROKBOT_SSH_USER", "root")
 PASSWORD = os.environ.get("GROKBOT_SSH_PASS", "")
@@ -65,6 +65,9 @@ def ssh_run(client: paramiko.SSHClient, cmd: str, timeout=600):
 
 
 def main():
+    if not DOMAIN:
+        print("Set GROKBOT_DOMAIN", file=sys.stderr)
+        sys.exit(1)
     if not PASSWORD:
         print("Set GROKBOT_SSH_PASS", file=sys.stderr)
         sys.exit(1)

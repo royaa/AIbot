@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DOMAIN="${1:-replay.githun.cn}"
+DOMAIN="${1:-}"
+if [[ -z "$DOMAIN" ]]; then
+  echo "usage: remote-setup.sh <domain>" >&2
+  exit 1
+fi
 APP_DIR="/opt/grokbot-relay"
 NODE_MAJOR=20
 

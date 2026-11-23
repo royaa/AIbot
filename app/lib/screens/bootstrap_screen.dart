@@ -16,7 +16,7 @@ class BootstrapScreen extends StatefulWidget {
 }
 
 class _BootstrapScreenState extends State<BootstrapScreen> {
-  static const _defaultRelay = 'ws://replay.githun.cn/ws';
+  static const _defaultRelay = 'ws://127.0.0.1:8787/ws';
 
   @override
   void initState() {
@@ -24,19 +24,9 @@ class _BootstrapScreenState extends State<BootstrapScreen> {
     _bootstrap();
   }
 
-  /// 历史扫码可能写入 127.0.0.1；生产一律回落到域名
   static String _normalizeRelay(String raw) {
-    var relayUrl = raw.trim();
+    final relayUrl = raw.trim();
     if (relayUrl.isEmpty) return _defaultRelay;
-    if (relayUrl.startsWith('wss://replay.githun.cn/')) {
-      relayUrl = relayUrl.replaceFirst('wss://', 'ws://');
-    }
-    final lower = relayUrl.toLowerCase();
-    if (lower.contains('127.0.0.1') ||
-        lower.contains('localhost') ||
-        lower.contains('[::1]')) {
-      return _defaultRelay;
-    }
     return relayUrl;
   }
 

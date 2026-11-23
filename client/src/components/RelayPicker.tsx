@@ -170,7 +170,7 @@ export function RelayPicker({
           <Input
             value={remoteDraft}
             onChange={(e) => setRemoteDraft(e.target.value)}
-            placeholder="ws://replay.githun.cn/ws"
+            placeholder="ws://你的域名/ws"
           />
           <Btn
             variant="ghost"

@@ -17,27 +17,18 @@ class PairScreen extends ConsumerStatefulWidget {
 }
 
 class _PairScreenState extends ConsumerState<PairScreen> {
-  final relayCtrl = TextEditingController(text: 'ws://replay.githun.cn/ws');
+  final relayCtrl = TextEditingController(text: 'ws://127.0.0.1:8787/ws');
   final codeCtrl = TextEditingController();
   final nameCtrl = TextEditingController(text: 'My Phone');
   bool scanning = false;
   bool pairing = false;
   String? error;
 
-  static const _defaultRelay = 'ws://replay.githun.cn/ws';
+  static const _defaultRelay = 'ws://127.0.0.1:8787/ws';
 
   String _normalizeRelay(String raw) {
-    var u = raw.trim();
+    final u = raw.trim();
     if (u.isEmpty) return _defaultRelay;
-    if (u.startsWith('wss://replay.githun.cn/')) {
-      u = u.replaceFirst('wss://', 'ws://');
-    }
-    final lower = u.toLowerCase();
-    if (lower.contains('127.0.0.1') ||
-        lower.contains('localhost') ||
-        lower.contains('[::1]')) {
-      return _defaultRelay;
-    }
     return u;
   }
 
