@@ -11,7 +11,7 @@ except ImportError:
     import paramiko
 
 DOMAIN = os.environ.get("GROKBOT_DOMAIN", "").strip()
-HOST = os.environ.get("GROKBOT_SSH_HOST", "101.133.226.127")
+HOST = os.environ.get("GROKBOT_SSH_HOST", "").strip()
 USER = os.environ.get("GROKBOT_SSH_USER", "root")
 PASSWORD = os.environ.get("GROKBOT_SSH_PASS", "")
 NGINX_CONF = "/etc/nginx/conf.d/grokbot-relay.conf"
@@ -51,6 +51,9 @@ NGINX = f"""server {{
 def main():
     if not DOMAIN:
         print("Set GROKBOT_DOMAIN", file=sys.stderr)
+        sys.exit(1)
+    if not HOST:
+        print("Set GROKBOT_SSH_HOST", file=sys.stderr)
         sys.exit(1)
     if not PASSWORD:
         print("Set GROKBOT_SSH_PASS", file=sys.stderr)
