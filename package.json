@@ -1,0 +1,36 @@
+{
+  "name": "grokbot",
+  "private": true,
+  "workspaces": [
+    "shared/protocol",
+    "relay",
+    "agent",
+    "client"
+  ],
+  "scripts": {
+    "build": "npm run build -w shared/protocol && npm run build -w relay && npm run build -w agent",
+    "relay": "npm run start -w relay",
+    "agent": "npm run start -w agent",
+    "agent:pair": "npm run pair -w agent",
+    "client:build": "npm run build -w client",
+    "client": "npm run start -w client",
+    "dev:relay": "npm run dev -w relay",
+    "dev:agent": "npm run dev -w agent",
+    "test:mobile": "node scripts/mobile-test-client.mjs",
+    "install:cli": "powershell -ExecutionPolicy Bypass -File scripts/install-cli/install-all.ps1",
+    "install:cli:claude": "powershell -ExecutionPolicy Bypass -File scripts/install-cli/install-claude.ps1",
+    "install:cli:cursor": "powershell -ExecutionPolicy Bypass -File scripts/install-cli/install-cursor-agent.ps1",
+    "install:cli:codex": "powershell -ExecutionPolicy Bypass -File scripts/install-cli/install-codex.ps1",
+    "install:cli:workbuddy": "powershell -ExecutionPolicy Bypass -File scripts/install-cli/install-workbuddy.ps1",
+    "sync:mcp": "node scripts/sync-mcp-catalog.mjs"
+  },
+  "devDependencies": {
+    "ws": "^8.22.1"
+  },
+  "allowScripts": {
+    "better-sqlite3@11.10.0": true,
+    "esbuild@0.28.2": true,
+    "esbuild@0.21.5": true,
+    "electron": true
+  }
+}

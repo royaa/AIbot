@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "description": "公共 MCP 清单：由 scripts/sync-mcp-catalog.mjs 投影到各 CLI 本机配置。Agent 进程不托管 MCP。",
+  "servers": [
+    {
+      "id": "mysql",
+      "description": "本机 WAMP/MySQL 查询与改数",
+      "targets": ["claude", "cursor", "codex"],
+      "server": {
+        "command": "${NODE_EXE}",
+        "args": ["${CURSOR_HOME}/mcp-servers/mysql/index.mjs"],
+        "cwd": "${CURSOR_HOME}/mcp-servers/mysql",
+        "env": {
+          "MYSQL_HOST": "${MYSQL_HOST:127.0.0.1}",
+          "MYSQL_PORT": "${MYSQL_PORT:3306}",
+          "MYSQL_USER": "${MYSQL_USER:root}",
+          "MYSQL_PASSWORD": "${MYSQL_PASSWORD:}"
+        }
+      }
+    },
+    {
+      "id": "Playwright",
+      "description": "Playwright 浏览器自动化 MCP",
+      "targets": ["claude", "cursor"],
+      "server": {
+        "command": "npx",
+        "args": ["@playwright/mcp@latest"]
+      }
+    }
+  ]
+}

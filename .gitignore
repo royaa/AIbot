@@ -1,0 +1,50 @@
+# svn
+.svn/
+
+# dependencies / build
+node_modules/
+dist/
+client/dist-renderer/
+client/release/
+client/staging/
+*.log
+build-apk.log
+
+# secrets & local overrides
+.env
+.env.*
+!.env.example
+agent/agent.config.json
+agent/agent.config.local.json
+agent/.agent-id
+*.local.json
+*.local.json.*
+*.live-bak
+relay/deploy/.ssh-creds.local
+relay/deploy/_diag_remote*.py
+
+# agent runtime (本机会话 / 浏览器配置 / MCP 运行时)
+agent/data/
+agent/logs/
+
+# relay runtime
+relay/data/
+
+# app / flutter
+app/.dart_tool/
+app/build/
+app/**/flutter/ephemeral/
+releases/*.apk
+
+# local scratch
+.pc2phone-test/
+.grok/
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+*.iml
+*.sqlite
+*.apk
+*.exe
+*.blockmap

@@ -1,0 +1,6 @@
+{
+  "enabled": true,
+  "appendTools": {
+    "svn": "本机 SVN 可执行文件"
+  }
+}

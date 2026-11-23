@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0b0e14;
+  --color-panel: #12161f;
+  --color-panel2: #171c27;
+  --color-line: #232a38;
+  --color-fg: #e7ebf3;
+  --color-dim: #8b93a7;
+  --color-accent: #4f7cff;
+  --color-accent-fg: #ffffff;
+  --color-ok: #34d399;
+  --color-warn: #fbbf24;
+  --color-err: #f87171;
+  --font-sans: system-ui, "Segoe UI", "Microsoft YaHei", sans-serif;
+  --font-mono: "Cascadia Code", Consolas, "JetBrains Mono", monospace;
+}
+
+/* 夜晚是默认色。白天覆盖同一组变量，组件不用各自改颜色。 */
+:root[data-theme="day"] {
+  color-scheme: light;
+  --color-bg: #f4f6fa;
+  --color-panel: #ffffff;
+  --color-panel2: #eef1f6;
+  --color-line: #d5dbe6;
+  --color-fg: #1b2433;
+  --color-dim: #5d6b82;
+  --color-accent: #3b6cff;
+  --color-accent-fg: #ffffff;
+  --color-ok: #047857;
+  --color-warn: #b45309;
+  --color-err: #dc2626;
+  --scrollbar: #c3ccd9;
+}
+
+:root[data-theme="night"] {
+  color-scheme: dark;
+  --scrollbar: #2a3243;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  overflow: hidden;
+  user-select: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar, #2a3243);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+input,
+textarea {
+  user-select: text;
+}

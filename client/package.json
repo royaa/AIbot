@@ -1,0 +1,62 @@
+{
+  "name": "@grokbot/client",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI Bot 控制台：手机遥控 PC AI CLI 的管理面",
+  "author": "baoyung",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json --noEmit && node scripts/build-main.mjs && vite build",
+    "start": "electron .",
+    "package": "node scripts/stage-agent.mjs && electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "@grokbot/protocol": "*",
+    "@tailwindcss/vite": "^4.0.14",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/ws": "^8.5.13",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "33.4.11",
+    "electron-builder": "^25.1.8",
+    "esbuild": "^0.21.5",
+    "lucide-react": "^0.468.0",
+    "qrcode.react": "^4.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^4.0.14",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "ws": "^8.18.0"
+  },
+  "build": {
+    "appId": "cn.baoyung.aibot.console",
+    "productName": "AI Bot Console",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "dist-renderer/**",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "staging/grokbot",
+        "to": "grokbot"
+      }
+    ],
+    "npmRebuild": false,
+    "win": {
+      "target": ["nsis"],
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "AI-Bot-Console-Setup-${version}.exe"
+    }
+  }
+}

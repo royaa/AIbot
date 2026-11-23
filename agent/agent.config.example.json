@@ -1,0 +1,47 @@
+{
+  "agentId": "",
+  "relayUrl": "ws://127.0.0.1:8787/ws",
+  "token": "",
+  "workspaces": [
+    {
+      "id": "default",
+      "name": "默认项目",
+      "path": "D:\\projects\\my-app"
+    }
+  ],
+  "tools": {
+    "grok": "grok",
+    "claude": "claude",
+    "codex": "codex",
+    "agent": "agent",
+    "cursor": "cursor",
+    "opencode": "opencode",
+    "pi": "pi",
+    "droid": "droid",
+    "crush": "crush",
+    "svn": "svn",
+    "chrome": "chrome",
+    "workbuddyUrl": "https://workbuddy.cn/app",
+    "workbuddyCdpPort": "9333"
+  },
+  "autoApprove": true,
+  "skills": {
+    "enabled": true,
+    "include": [],
+    "exclude": []
+  },
+  "mcp": {
+    "autoSync": true,
+    "injectClaude": true
+  },
+  "session": {
+    "maxContextChars": 12000,
+    "keepRecentTurns": 6,
+    "summarizeTool": "claude",
+    "nativeResume": {
+      "claude": true,
+      "cursor_agent": true,
+      "codex": true
+    }
+  }
+}
