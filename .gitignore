@@ -48,3 +48,6 @@ Desktop.ini
 *.apk
 *.exe
 *.blockmap
+__pycache__/
+*.pyc
+releases/_adb_install_tmp.bat
