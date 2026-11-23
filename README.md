@@ -61,14 +61,16 @@ npm run client
 npm run agent
 ```
 
-控制台第一次打开会给出分步引导。之后可在「帮助」里重放。安装包：
+控制台第一次打开会给出分步引导。之后可在「帮助」里重放。已打好的安装包：[AI-Bot-Console-Setup-0.1.0.exe](client/release/AI-Bot-Console-Setup-0.1.0.exe)。
+
+自行打包：
 
 ```powershell
 npm run client:build
 npm run package -w client
 ```
 
-产物在 `client/release/AI-Bot-Console-Setup-0.1.0.exe`。安装包不进入 Git。
+产物在 `client/release/AI-Bot-Console-Setup-0.1.0.exe`。
 
 改代码后按改动范围重建，不必每次全量：
 
@@ -111,7 +113,7 @@ Claude、Cursor Agent 需要各自登录（`claude`、`agent login`）。多数�
 
 ## 手机 App
 
-`releases/*.apk` 不进入 Git。在开发机打包：
+已打好的安装包：[releases/grokbot_app-1.0.2+29.apk](releases/grokbot_app-1.0.2+29.apk)。在开发机重新打包：
 
 ```powershell
 cd app
@@ -152,4 +154,4 @@ npm run dev:agent
 | [docs/安装部署指南.md](docs/安装部署指南.md) | 本地流程、远程 Relay、CLI、常见问题 |
 | [docs/服务启动指南.md](docs/服务启动指南.md) | 日常启停和排错 |
 | [agent/src/tools/README.md](agent/src/tools/README.md) | 增加或去掉一个 CLI |
-| [releases/README.md](releases/README.md) | 手机包版本记录（二进制不在 Git 里） |
+| [releases/README.md](releases/README.md) | 手机包版本记录 |

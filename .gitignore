@@ -5,7 +5,8 @@
 node_modules/
 dist/
 client/dist-renderer/
-client/release/
+client/release/*
+!client/release/AI-Bot-Console-Setup-0.1.0.exe
 client/staging/
 *.log
 build-apk.log
@@ -35,6 +36,7 @@ app/.dart_tool/
 app/build/
 app/**/flutter/ephemeral/
 releases/*.apk
+!releases/grokbot_app-1.0.2+29.apk
 
 # local scratch
 .pc2phone-test/
@@ -47,6 +49,8 @@ Desktop.ini
 *.sqlite
 *.apk
 *.exe
+!releases/grokbot_app-1.0.2+29.apk
+!client/release/AI-Bot-Console-Setup-0.1.0.exe
 *.blockmap
 __pycache__/
 *.pyc
