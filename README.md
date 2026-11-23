@@ -37,7 +37,7 @@ Relay    ──ws file.offer────────────► 手机
 ## 第一次跑起来
 
 ```powershell
-cd D:\你的路径\aibot
+cd aibot项目目录
 npm install
 npm run build
 copy agent\agent.config.example.json agent\agent.config.json

@@ -22,7 +22,7 @@
 
 ```powershell
 $env:GRADLE_USER_HOME="$env:USERPROFILE\.gradle"
-cd D:\wamp64_332\www\grokbot\app
+cd aibot项目目录\app
 flutter pub get
 flutter build apk --release
 copy build\app\outputs\flutter-apk\app-release.apk ..\releases\grokbot_app-1.0.0+4.apk
