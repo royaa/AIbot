@@ -2,14 +2,14 @@
 
 | 类型 | 主机记录 | 记录值 |
 |------|----------|--------|
-| A | replay | 101.133.226.127 |
+| A | 你的主机记录 | 你的服务器 IP |
 
-完整域名：`replay.githun.cn`
+完整域名：`你的域名`
 
 ## 连接地址（明文 WebSocket，无证书）
 
-- WebSocket：`ws://replay.githun.cn/ws`
-- 健康检查：`http://replay.githun.cn/health`
+- WebSocket：`ws://你的域名/ws`
+- 健康检查：`http://你的域名/health`
 
 ## PC Agent 配置
 
@@ -17,15 +17,15 @@
 
 ```json
 {
-  "relayUrl": "ws://replay.githun.cn/ws"
+  "relayUrl": "ws://你的域名/ws"
 }
 ```
 
-或环境变量：`RELAY_URL=ws://replay.githun.cn/ws`
+或环境变量：`RELAY_URL=ws://你的域名/ws`
 
 ## Flutter App
 
-配对页 Relay 地址填：`ws://replay.githun.cn/ws`
+配对页 Relay 地址填：`ws://你的域名/ws`
 
 Android 需允许明文流量（本项目已在 `AndroidManifest.xml` 开启 `usesCleartextTraffic`）。
 
@@ -46,14 +46,14 @@ systemctl status grokbot-relay
 journalctl -u grokbot-relay -f
 systemctl restart grokbot-relay
 # 修改 .env 中 RELAY_PUBLIC_URL 后重启
-sed -i 's|RELAY_PUBLIC_URL=.*|RELAY_PUBLIC_URL=ws://replay.githun.cn/ws|' /opt/grokbot-relay/.env && systemctl restart grokbot-relay
+sed -i 's|RELAY_PUBLIC_URL=.*|RELAY_PUBLIC_URL=ws://你的域名/ws|' /opt/grokbot-relay/.env && systemctl restart grokbot-relay
 ```
 
 ## 重新部署（本机）
 
 ```powershell
 $env:GROKBOT_SSH_PASS='你的密码'
-$env:GROKBOT_DOMAIN='replay.githun.cn'
+$env:GROKBOT_DOMAIN='你的域名'
 python relay/deploy/upload_deploy.py
 ```
 
@@ -61,4 +61,4 @@ python relay/deploy/upload_deploy.py
 
 ## 可选：以后启用 HTTPS
 
-见 `finish-ssl.sh` 与 `nginx-replay.githun.cn.conf` 注释；启用后需把客户端改回 `wss://`。
+见 `finish-ssl.sh` 与 `nginx-relay.conf` 注释；启用后需把客户端改回 `wss://`。
